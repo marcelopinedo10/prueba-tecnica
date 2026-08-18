@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum EquipmentStatus {
+  OPERATIONAL
+  MAINTENANCE
+}
+
+model Equipment {
+  id              Int             @id @default(autoincrement())
+  name            String
+  type            String
+  brand           String
+  model           String
+  serialNumber    String          @unique
+  status          EquipmentStatus @default(OPERATIONAL)
+  description     String?
+  acquisitionDate DateTime?
+
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+}
