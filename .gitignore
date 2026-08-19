@@ -1,0 +1,12 @@
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Docker
+.docker/
+
+# Dependencies and build output
+node_modules/
+dist/
+coverage/
